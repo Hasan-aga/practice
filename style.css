@@ -6,6 +6,7 @@
 
 body {
   font-family: sans-serif;
+  border-top: solid 10px black;
 }
 
 .topnav {
@@ -17,6 +18,8 @@ body {
 
 .topnav h1 {
   padding-left: 20px;
+  float: left;
+  font-size: 30px;
 }
 
 .topnav a:link {
@@ -25,8 +28,15 @@ body {
   font-size: 20px;
 }
 
-.topnav nav {
-  margin-left: 20px;
+.links {
+  float: right;
+  padding-bottom: 10px;
+}
+
+.topnav::after {
+  content: "";
+  clear: both;
+  display: block;
 }
 
 .links a:link {
