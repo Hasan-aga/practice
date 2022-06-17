@@ -13,6 +13,9 @@ body {
   text-transform: uppercase;
   font-size: 30px;
   background-color: #ffee00;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
   padding: 10px;
 }
 
@@ -27,12 +30,7 @@ body {
   font-size: 20px;
 }
 
-.links {
-  padding-bottom: 10px;
-}
-
 .links a:link {
-  padding: 0 10px;
   font-weight: bold;
 }
 
@@ -40,12 +38,14 @@ body {
   font-weight: bold;
   background-color: #000;
   color: white;
-  padding-bottom: 10px;
-  padding-top: 10px;
+  border-bottom: solid #ffee00 10px;
+  padding-bottom: 15px;
+  padding-top: 20px;
 }
 
 .container {
   margin-left: auto;
   margin-right: auto;
   width: 90%;
+  border-bottom: solid black 10px;
 }
