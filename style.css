@@ -7,3 +7,9 @@
 body {
   font-family: sans-serif;
 }
+
+.topnav {
+  text-transform: uppercase;
+  font-size: 30px;
+  background-color: rgb(255, 238, 0);
+}
