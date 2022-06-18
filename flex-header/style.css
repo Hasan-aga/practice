@@ -17,6 +17,7 @@ body {
   justify-content: space-between;
   align-items: stretch;
   padding: 10px 0;
+  border-bottom: solid black 10px;
 }
 
 .topnav h1 {
@@ -51,49 +52,41 @@ body {
 .container {
   margin-left: auto;
   margin-right: auto;
-  width: 90%;
-  border-bottom: solid black 10px;
+  width: 60%;
   order: 1;
 }
 
-.sidebar {
-  background-color: #ffee00;
-  padding: 10px;
-  display: inline-block;
+/* section layouts */
+header,
+section {
+  margin-bottom: 48px;
 }
 
-.sidebar h2 {
+h2 {
+  margin-bottom: 48px;
+  font-size: 70px;
+  text-transform: capitalize;
+}
+
+p {
   padding-bottom: 10px;
-  font-size: 40px;
-  text-transform: uppercase;
-  order: -1;
 }
 
-.side-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center; /*vertical*/
+  justify-items: end;
+  gap: 20px;
 }
 
-.side-content a:link {
-  color: #000;
-  text-decoration: none;
-  font-size: 20px;
-  padding: 0 10px;
+.textbox {
+  align-self: center;
 }
 
-.side-content a:hover {
-  font-weight: bold;
-  background-color: #000;
-  color: white;
-  border-bottom: solid white 10px;
-}
-.side-content li {
-  padding-bottom: 10px;
-  list-style: none;
-}
-
-.side-header-flex {
-  display: flex;
-  align-items: flex-start;
+.intro img {
+  width: 90%;
+  border-radius: 10%;
+  grid-column: 2;
+  grid-row: 1;
 }
