@@ -16,7 +16,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: stretch;
-  padding: 10px;
+  padding: 10px 0;
 }
 
 .topnav h1 {
@@ -32,6 +32,7 @@ body {
 
 .links a:link {
   font-weight: bold;
+  padding: 0 10px;
 }
 
 .links a:hover {
@@ -41,6 +42,10 @@ body {
   border-bottom: solid #ffee00 10px;
   padding-bottom: 15px;
   padding-top: 20px;
+}
+
+.links a:last-child {
+  padding-right: 0;
 }
 
 .container {
