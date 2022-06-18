@@ -54,3 +54,32 @@ body {
   width: 90%;
   border-bottom: solid black 10px;
 }
+
+.sidebar {
+  background-color: #ffee00;
+  padding: 10px;
+  display: inline-block;
+}
+
+.sidebar h2 {
+  padding-bottom: 10px;
+  font-size: 40px;
+  text-transform: uppercase;
+}
+
+.side-content a:link {
+  color: #000;
+  text-decoration: none;
+  font-size: 20px;
+  padding: 0 10px;
+}
+
+.side-content a:hover {
+  font-weight: bold;
+  background-color: #000;
+  color: white;
+  border-bottom: solid white 10px;
+}
+.side-content li {
+  padding-bottom: 10px;
+}
