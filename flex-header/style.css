@@ -239,7 +239,8 @@ button:hover {
 }
 
 .list-icon {
-  padding-top: 5px;
   width: 24px;
   height: 24px;
+  background-color: #fab005;
+  border-radius: 50%;
 }
