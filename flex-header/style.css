@@ -179,6 +179,10 @@ button,
   font-weight: 700;
 }
 
+#selling-link {
+  box-shadow: 10px 10px 0 #06a77d;
+}
+
 button:hover {
   background-color: #fab005;
   cursor: pointer;
@@ -192,12 +196,13 @@ button:hover {
 .product-details {
   background-color: #fff3bf;
   padding: 20px 10px;
-  border-radius: 10%;
+  border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
   align-items: center;
   justify-items: center;
+  box-shadow: 0 10px 10px 5px hsla(0, 100%, 50%, 0.062);
 }
 
 .product-details h4 {
