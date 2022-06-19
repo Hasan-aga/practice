@@ -105,6 +105,25 @@ blockquote {
   line-height: 2;
   font-style: italic;
   font-weight: 400;
+  position: relative;
+}
+
+blockquote::before {
+  content: "❝";
+  font-size: 50px;
+  position: absolute;
+  left: -30px;
+  top: -20px;
+  display: block;
+}
+
+blockquote::after {
+  content: "❞";
+  font-size: 50px;
+  position: absolute;
+  right: -30px;
+  bottom: -20px;
+  display: inline-block;
 }
 
 .intro {
