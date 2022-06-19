@@ -69,7 +69,7 @@ body {
 /* section layouts */
 header,
 section {
-  margin-bottom: 48px;
+  margin-bottom: 148px;
 }
 
 h2 {
@@ -114,7 +114,7 @@ blockquote::before {
   position: absolute;
   left: -30px;
   top: -20px;
-  display: block;
+  display: inline-block;
 }
 
 blockquote::after {
@@ -200,6 +200,11 @@ button,
 
 #selling-link {
   box-shadow: 10px 10px 0 #06a77d;
+  transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+#selling-link:hover {
+  box-shadow: 10px 10px 0 #ff4d88;
 }
 
 button:hover {
