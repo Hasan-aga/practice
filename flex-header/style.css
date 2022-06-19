@@ -172,6 +172,10 @@ blockquote::after {
   border-radius: 20px;
 }
 
+.third-section img {
+  width: 90%;
+}
+
 .selling-content {
   background-color: #ffe066;
   padding: 20px;
