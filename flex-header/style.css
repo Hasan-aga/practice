@@ -6,6 +6,10 @@
   font-family: "Montserrat", sans-serif;
 }
 
+body {
+  background-color: hsla(49, 100%, 87%, 0.295);
+}
+
 html {
   scroll-behavior: smooth;
 }
