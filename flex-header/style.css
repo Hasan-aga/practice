@@ -147,6 +147,9 @@ blockquote {
 }
 
 .selling-content {
+  background-color: #ffe066;
+  padding: 20px;
+  border-radius: 20px;
   gap: 20px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -159,7 +162,9 @@ blockquote {
   border-radius: 20px;
 }
 
-button {
+button,
+#selling-link {
+  text-decoration: none;
   border-radius: 8px;
   width: 90%;
   padding: 10px;
