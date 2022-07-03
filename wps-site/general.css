@@ -18,6 +18,12 @@ h1 {
   margin-bottom: 2rem;
 }
 
+.side-by-side {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
 .centered-container {
   width: 90%;
   margin: 0 auto;
