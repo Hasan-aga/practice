@@ -19,12 +19,20 @@ body {
   font-size: 1.6rem;
   padding: 1rem 2rem;
   border-radius: 6px;
+  text-align: center;
 }
 
 .button-full {
   color: #fffffb;
   font-weight: 700;
   background-color: #000;
+}
+
+.button:hover,
+.button:active,
+.button-full:hover,
+.button-full:active {
+  cursor: pointer;
 }
 
 /* ****************************************************** */
