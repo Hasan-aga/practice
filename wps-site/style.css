@@ -77,6 +77,16 @@
   justify-content: center;
 }
 
+/* animation */
+.typed-out {
+  width: calc(var(--steps) * 1ch);
+  animation: typing 2s steps(var(--steps)),
+    blink 0.5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+}
+
 .hero-subtitle {
   font-weight: 100;
   text-align: center;
