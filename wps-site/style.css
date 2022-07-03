@@ -13,9 +13,27 @@ body {
   font-size: 1.8rem;
 }
 
+.hero-background {
+  height: 100vh;
+  background-color: #6479f5;
+  background-image: radial-gradient(
+      closest-side,
+      #c564f5,
+      rgba(197, 100, 245, 0)
+    ),
+    radial-gradient(closest-side, #75baf4, rgba(117, 186, 244, 0)),
+    radial-gradient(closest-side, #75baf4, rgba(117, 186, 244, 0)),
+    radial-gradient(closest-side, #8663f5, rgba(134, 99, 245, 0)),
+    radial-gradient(closest-side, #8663f5, rgba(134, 99, 245, 0));
+  background-size: 130vmax 130vmax, 80vmax 80vmax, 90vmax 90vmax,
+    110vmax 110vmax, 90vmax 90vmax;
+  background-position: -80vmax -80vmax, 60vmax -30vmax, 10vmax 10vmax,
+    -30vmax -10vmax, 50vmax 50vmax;
+  background-repeat: no-repeat;
+}
+
 .main-header {
   padding: 1rem 10rem;
-  background-color: red;
 }
 
 .main-navigation {
@@ -26,20 +44,22 @@ body {
 
 .main-navigation a:link,
 .main-navigation a:visited {
-  color: #444;
   text-decoration: none;
+  color: #fffffb;
+  font-weight: 500;
 }
 
 .navigation-right {
   display: flex;
   align-items: center;
   justify-content: start;
-  column-gap: 2.4rem;
+  column-gap: 4.8rem;
 }
 
 .logo {
-  width: 10%;
-  padding: 1rem;
+  width: 4.8rem;
+  height: 4.8rem;
+  color: #fffffb;
 }
 
 .main-navigation-list {
@@ -68,7 +88,10 @@ Line height:
 default: 1
 
 ----02 colors:
-    primary: #e67e22
+    primary:
+            #FFFFFB 
+            #00C49A
+            #4d9de0
     tints:
     shades:
     accents:
