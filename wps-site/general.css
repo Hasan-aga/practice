@@ -13,6 +13,11 @@ body {
   font-size: 1.8rem;
 }
 
+.centered-container {
+  width: 90%;
+  margin: 0 auto;
+}
+
 .button {
   border: none;
   background-color: #fffffb;
