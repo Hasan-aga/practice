@@ -18,7 +18,8 @@
 }
 
 .main-header {
-  padding: 1rem 10rem;
+  padding: 1rem 0;
+  padding-bottom: 9.6rem;
 }
 
 .main-navigation {
@@ -58,4 +59,11 @@
 .main-navigation-list ion-icon[name="earth"] {
   width: 3.4rem;
   height: 3.4rem;
+}
+
+/* --------------------------------------------------------------------- */
+/* ------------HERO SECTION--------------------------------------------- */
+/* --------------------------------------------------------------------- */
+.hero-section {
+  padding-bottom: 9.6rem;
 }
