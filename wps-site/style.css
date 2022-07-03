@@ -68,9 +68,9 @@ body {
   list-style: none;
 }
 
-.main-navigation-list ion-icon[name="earth-outline"] {
-  width: 2.4rem;
-  height: 2.4rem;
+.main-navigation-list ion-icon[name="earth"] {
+  width: 3.4rem;
+  height: 3.4rem;
 }
 
 /* ****************************************************** */
@@ -90,8 +90,8 @@ default: 1
 ----02 colors:
     primary:
             #FFFFFB 
-            #00C49A
-            #4d9de0
+            #8663f5
+            #75baf4
     tints:
     shades:
     accents:
