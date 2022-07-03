@@ -1,0 +1,63 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: sans-serif;
+  font-size: 1.8rem;
+}
+
+.button {
+  border: none;
+  background-color: #fffffb;
+  font-size: 1.6rem;
+  padding: 1rem 2rem;
+  border-radius: 6px;
+}
+
+.button-full {
+  color: #fffffb;
+  font-weight: 700;
+  background-color: #000;
+}
+
+/* ****************************************************** */
+/* 
+---- 01 TYPOGRAPHY SYSTEM
+
+FONT SIZE SYSTEM (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+
+Font weight:
+default: 400
+
+Line height:
+default: 1
+
+----02 colors:
+    primary:
+            #FFFFFB 
+            #8663f5
+            #75baf4
+    tints:
+    shades:
+    accents:
+    greys: #555
+
+----- 03 shadows
+
+----- 04 border-radius
+        6px
+
+-----05 whitespace
+ SPACING SYSTEM (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+*********************************************************************
+*/
