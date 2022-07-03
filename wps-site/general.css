@@ -1,3 +1,7 @@
+:root {
+  --steps: 0;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -50,17 +54,6 @@ h1 {
 .button-full:hover,
 .button-full:active {
   cursor: pointer;
-}
-
-/* animation */
-.typing-demo {
-  width: 22ch;
-  animation: typing 2s steps(22), blink 0.5s step-end infinite alternate;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 3px solid;
-  font-family: monospace;
-  font-size: 2em;
 }
 
 @keyframes typing {
