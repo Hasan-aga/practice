@@ -87,4 +87,18 @@
 
 .hero-button {
   font-size: 2.4rem;
+  transition: all 200ms;
+}
+
+.hero-button ion-icon {
+  transition: all 400ms;
+}
+.hero-button:hover {
+  padding: 2rem;
+}
+
+.hero-button:hover ion-icon {
+  width: 5rem;
+  height: 5rem;
+  padding: 0;
 }
