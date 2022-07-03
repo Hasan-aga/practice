@@ -9,15 +9,13 @@ html {
 }
 
 body {
+  font-family: sans-serif;
   font-size: 1.8rem;
 }
 
 .main-header {
-  padding: 2.4rem 9.6rem;
-}
-
-.logo {
-  width: 100%;
+  padding: 1rem 10rem;
+  background-color: red;
 }
 
 .main-navigation {
@@ -26,17 +24,33 @@ body {
   justify-content: space-between;
 }
 
+.main-navigation a:link,
+.main-navigation a:visited {
+  color: #444;
+  text-decoration: none;
+}
+
 .navigation-right {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  column-gap: 10rem;
+  justify-content: start;
+  column-gap: 2.4rem;
+}
+
+.logo {
+  width: 10%;
+  padding: 1rem;
 }
 
 .main-navigation-list {
   display: flex;
   column-gap: 3.4rem;
   list-style: none;
+}
+
+.main-navigation-list ion-icon[name="earth-outline"] {
+  width: 2.4rem;
+  height: 2.4rem;
 }
 
 /* ****************************************************** */
