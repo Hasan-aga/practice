@@ -16,13 +16,19 @@ body {
   padding: 2.4rem 9.6rem;
 }
 
+.logo {
+  width: 100%;
+}
+
 .main-navigation {
   display: flex;
+  align-items: center;
   justify-content: space-between;
 }
 
 .navigation-right {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   column-gap: 10rem;
 }
