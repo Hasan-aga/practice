@@ -138,7 +138,19 @@
   background-color: hsla(60, 100%, 99%, 0.164);
 }
 
-.tab-button:focus {
-  background-color: hsla(60, 100%, 99%, 0.856);
+.hero-tabs .tab-button:first-of-type:focus {
+  background-color: hsla(60, 100%, 99%, 0.5);
   color: #6479f5;
+}
+.hero-tabs .tab-button:nth-child(2):focus {
+  background-color: hsla(60, 100%, 99%, 0.5);
+  color: #fb4d3d;
+}
+.hero-tabs .tab-button:nth-child(3):focus {
+  background-color: hsla(60, 100%, 99%, 0.5);
+  color: #4da167;
+}
+.hero-tabs .tab-button:nth-child(4):focus {
+  background-color: hsla(60, 100%, 99%, 0.5);
+  color: #694f5d;
 }
