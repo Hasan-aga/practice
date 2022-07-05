@@ -154,3 +154,14 @@
   background-color: hsla(60, 100%, 99%, 0.5);
   color: #694f5d;
 }
+
+/* *********************************************** */
+/* PC SECTION */
+/* *********************************************** */
+
+.pc {
+  width: 90rem;
+  height: 50rem;
+  background-color: #4da167;
+  border: 5px solid #333;
+}
