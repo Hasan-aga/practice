@@ -158,10 +158,24 @@
 /* *********************************************** */
 /* PC SECTION */
 /* *********************************************** */
+.pc-wrapper {
+  perspective: 1000px;
+}
 
 .pc {
   width: 90rem;
   height: 50rem;
   background-color: #4da167;
   border: 5px solid #333;
+  transform-origin: bottom;
+  animation: rotate 2s ease-in-out;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotateX(-45deg);
+  }
+  to {
+    transform: rotateX(0deg);
+  }
 }
