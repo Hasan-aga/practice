@@ -168,6 +168,7 @@
   background-color: #4da167;
   border: 5px solid #333;
   transform-origin: bottom;
+  animation-delay: 2s;
   animation: rotate 2s ease-in-out;
 }
 
