@@ -15,6 +15,7 @@
   width: 100px;
   height: 100px;
   background-color: green;
+  transform-origin: right;
   animation: rotateY 2s infinite ease-in-out alternate;
   /* transform: rotateY(90deg); */
 }

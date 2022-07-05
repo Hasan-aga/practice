@@ -24,3 +24,5 @@
   }
 }
 ```
+
+we can also pick the point at which the element rotates using `transform-origin: right;` for example.
