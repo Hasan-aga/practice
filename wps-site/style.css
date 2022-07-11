@@ -164,7 +164,7 @@
 
 .pc {
   width: 90rem;
-  height: fit-content;
+
   background-color: #4da167;
   border-top: 2rem solid #333;
   border-right: 1rem solid #333;
@@ -176,8 +176,8 @@
 }
 
 .pc-content {
+  display: block;
   width: 100%;
-  object-fit: fill;
 }
 
 @keyframes rotate {
