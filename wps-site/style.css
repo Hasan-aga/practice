@@ -164,11 +164,20 @@
 
 .pc {
   width: 90rem;
-  height: 50rem;
+  height: fit-content;
   background-color: #4da167;
-  border: 5px solid #333;
+  border-top: 2rem solid #333;
+  border-right: 1rem solid #333;
+  border-left: 1rem solid #333;
+  border-bottom: 1rem solid #333;
+  border-radius: 11px;
   transform-origin: bottom;
   animation: rotate 2s ease-in-out;
+}
+
+.pc-content {
+  width: 100%;
+  object-fit: fill;
 }
 
 @keyframes rotate {
