@@ -14,7 +14,7 @@ pc.addEventListener("animationend", (event) => {
 
 // create top bar of pc
 const topBar = document.createElement("div");
-topBar.classList.add("pc-top-bar");
+topBar.classList.add("pc-top-bar", "centered-container");
 
 // display the top bar
 pc.prepend(topBar);
