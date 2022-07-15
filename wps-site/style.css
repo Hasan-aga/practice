@@ -173,7 +173,8 @@
   border-left: 1rem solid #333;
   border-bottom: 1rem solid #333;
   border-radius: 11px;
-  animation: rotate 40s ease-in-out;
+  transform-origin: bottom;
+  animation: rotate 4s ease-in-out;
   perspective: 700px;
 }
 
@@ -192,6 +193,7 @@
   transform: rotateX(45deg);
   background-color: #333;
   border-radius: 11px 11px 0 0;
+  animation: rotate-top 4s ease-in-out;
 }
 
 @keyframes rotate {
@@ -203,5 +205,17 @@
   }
   100% {
     transform: rotateX(0deg);
+  }
+}
+
+@keyframes rotate-top {
+  0% {
+    transform: rotateX(45deg);
+  }
+  50% {
+    transform: rotateX(45deg);
+  }
+  100% {
+    transform: rotateX(60deg);
   }
 }
