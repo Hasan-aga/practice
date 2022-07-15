@@ -163,8 +163,9 @@
 }
 
 .pc {
-  width: 90rem;
+  position: relative;
 
+  width: 90rem;
   background-color: #4da167;
   border-top: 2rem solid #333;
   border-right: 1rem solid #333;
@@ -178,6 +179,16 @@
 .pc-content {
   display: block;
   width: 100%;
+}
+
+.pc-top-bar {
+  position: absolute;
+  top: -4rem;
+  left: -1rem;
+  width: 90rem;
+  height: 2rem;
+  background-color: #4da167;
+  border-radius: 11px;
 }
 
 @keyframes rotate {
