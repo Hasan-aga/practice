@@ -174,7 +174,7 @@
   border-bottom: 1rem solid #333;
   border-radius: 11px;
   transform-origin: bottom;
-  animation: rotate 4s ease-in-out;
+  transform: rotateX(-45deg);
   perspective: 700px;
 }
 
@@ -193,29 +193,19 @@
   transform: rotateX(45deg);
   background-color: #333;
   border-radius: 11px 11px 0 0;
-  animation: rotate-top 4s ease-in-out;
+}
+
+.pc-animation {
+  animation: rotate 1s ease-in-out;
+  transform: rotateX(0deg);
 }
 
 @keyframes rotate {
   0% {
     transform: rotateX(-45deg);
   }
-  50% {
-    transform: rotateX(-45deg);
-  }
+
   100% {
     transform: rotateX(0deg);
-  }
-}
-
-@keyframes rotate-top {
-  0% {
-    transform: rotateX(45deg);
-  }
-  50% {
-    transform: rotateX(45deg);
-  }
-  100% {
-    transform: rotateX(60deg);
   }
 }

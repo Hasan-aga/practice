@@ -15,8 +15,22 @@ topBar.classList.add("pc-top-bar", "centered-container");
 // display the top bar
 pc.prepend(topBar);
 
-// detect animation end on pc element
-pc.addEventListener("animationend", (event) => {
-  console.log("animation ended");
-  topBar.remove();
-});
+// trigger animation on scroll
+function pcObserverCallback(entries, observer) {
+  const [entry] = entries;
+  if (entry.isIntersecting) {
+    console.log("intersection");
+    pc.classList.add("pc-animation");
+    topBar.remove();
+  }
+}
+
+const pcObserverOptions = {
+  root: null,
+  threshold: 0.5,
+};
+const pcObserver = new IntersectionObserver(
+  pcObserverCallback,
+  pcObserverOptions
+);
+pcObserver.observe(pcWrapper);
