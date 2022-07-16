@@ -65,7 +65,7 @@
 /* ------------HERO SECTION--------------------------------------------- */
 /* --------------------------------------------------------------------- */
 .hero-section {
-  padding-bottom: 9.6rem;
+  padding-bottom: 6rem;
 }
 
 .hero-content {
@@ -99,7 +99,7 @@
 .hero-button {
   font-size: 2.4rem;
   transition: all 200ms;
-  margin-bottom: 27rem;
+  margin-bottom: 10rem;
 }
 
 .hero-button ion-icon {
@@ -196,7 +196,7 @@
 }
 
 .pc-animation {
-  animation: rotate 1s ease-in-out;
+  animation: rotate 500ms ease-in-out;
   transform: rotateX(0deg);
 }
 

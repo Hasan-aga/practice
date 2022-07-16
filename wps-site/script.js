@@ -27,7 +27,7 @@ function pcObserverCallback(entries, observer) {
 
 const pcObserverOptions = {
   root: null,
-  threshold: 0.5,
+  threshold: 0.7,
 };
 const pcObserver = new IntersectionObserver(
   pcObserverCallback,
