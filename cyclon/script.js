@@ -22,12 +22,18 @@ class View {
   }
 
   createMap() {
-    console.log(this);
     this.map = L.map("map").setView([51.505, -0.09], 13);
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       maxZoom: 19,
       attribution: "© OpenStreetMap",
     }).addTo(this.map);
+  }
+
+  centerMapOn(position) {
+    console.log(this);
+    const latlng = [position.coords.latitude, position.coords.longitude];
+    console.log(latlng);
+    this.map.panTo(new L.LatLng(...latlng));
   }
 
   createListItem(workout) {
@@ -101,16 +107,11 @@ class Controller {
   handleGettingLocation() {
     if (navigator.geolocation)
       navigator.geolocation.getCurrentPosition(
-        this.centerMapOn.bind(this),
+        this.view.centerMapOn.bind(this.view),
         function () {
           alert("please provide position.");
         }
       );
-  }
-
-  centerMapOn(position) {
-    const latlng = [position.coords.latitude, position.coords.longitude];
-    console.log(latlng);
   }
 }
 
