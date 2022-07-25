@@ -1,0 +1,15 @@
+as a user I want my location to be detected so that it is shown on the map.
+as a user I want to search for any location so that I can show any place on the map.
+as a user I want to pick between multiple exercises so that I can add the correct type.
+as a user I want to be able to place a marker on the map so I can mark the exercise location.
+as a user I want to be able to draw the path on the map so the distance can be calculated.
+as a user I want to see a list of all the exercises I have added to the map so that I can view the details.
+as a user I want a button that centers so that I can include all markers in the view.
+as a user I want a way to sort the items of the list
+
+as a map I want user location so that I can show it.
+as a map I want to know the exercise type so that I can view the correct marker.
+as a map I want to know which list Item corresponds to each marker so that I can highlight marker when item is clicked or hovered.
+
+
+as a list Item I want to know the corresponding marker so that I can highlight myself when marker is clicked or hovered.
