@@ -120,3 +120,13 @@ row-gap: 1rem;
     width: 4rem;
     text-align: center;
 }
+
+.map-center{
+    width: 4rem;
+    text-align: center;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    border: 1px solid #666;
+    background-color: #f7f7f7;
+}
