@@ -41,8 +41,9 @@ html {
   color: #f7f7f7;
 }
 
-header {
+.header {
   display: flex;
+  margin-bottom: 6rem;
 }
 
 .header-text {
