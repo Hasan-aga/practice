@@ -98,6 +98,10 @@ row-gap: 1rem;
   position: relative;
 }
 
+#map{
+    height: 100%;
+}
+
 .map-search{
     position: absolute;
     top: 1rem;
