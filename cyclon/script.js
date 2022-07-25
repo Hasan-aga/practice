@@ -35,6 +35,14 @@ class View {
   getElement(selector) {
     return document.querySelector(`${selector}`);
   }
+
+  changeCursorToLocationIcon() {
+    this.bodyElement.classList.add("location-cursor");
+  }
+
+  resetCursorStyle() {
+    this.bodyElement.classList.remove("location-cursor");
+  }
 }
 
 class Controller {
@@ -44,32 +52,31 @@ class Controller {
     this.view = view;
     this.view.createMap();
 
-    this.view.bodyElement.addEventListener(
-      "click",
-      this.resetCursorStyle.bind(this)
-    );
-
     this.view.addButtonElement.addEventListener(
       "click",
       this.handleAddButton.bind(this)
     );
+
+    this.view.bodyElement.addEventListener(
+      "click",
+      this.handleResetCursorStyle.bind(this)
+    );
   }
 
   handleAddButton() {
-    this.view.bodyElement.classList.add("location-cursor");
+    this.view.changeCursorToLocationIcon();
     setTimeout(this.togglePickingLocationFlag.bind(this), 300);
+  }
+
+  handleResetCursorStyle() {
+    if (this.pickingLocationFlag) {
+      this.view.resetCursorStyle();
+      this.togglePickingLocationFlag();
+    }
   }
 
   togglePickingLocationFlag() {
     this.pickingLocationFlag = !this.pickingLocationFlag;
-  }
-
-  resetCursorStyle() {
-    if (this.pickingLocationFlag) {
-      console.log(this.pickingLocationFlag);
-      this.view.bodyElement.classList.remove("location-cursor");
-      this.togglePickingLocationFlag();
-    }
   }
 }
 
