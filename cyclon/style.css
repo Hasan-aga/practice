@@ -82,6 +82,13 @@ column-gap: 2rem;
     border: 1px solid #666;
     border-radius: 3px;
 }
+.content-list{
+    padding: 2rem 1rem ;
+    list-style-type: none;
+display: flex;
+flex-direction: column;
+row-gap: 1rem;
+}
 
 .content-map {
   height: 80rem;
