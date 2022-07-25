@@ -93,7 +93,7 @@ row-gap: 1rem;
 }
 
 .content-map {
-  height: 80rem;
+  height: 70vh;
   background-color: orangered;
   position: relative;
 }
