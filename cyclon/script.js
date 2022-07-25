@@ -14,17 +14,20 @@ class Model {
 }
 
 class View {
+  map;
   constructor() {
-    this.addButtonElement = document.querySelector(".content-input--add");
     this.bodyElement = document.querySelector("body");
+    this.addButtonElement = document.querySelector(".content-input--add");
+    this.locationButton = document.querySelector(".map-search--button");
   }
 
   createMap() {
-    let map = L.map("map").setView([51.505, -0.09], 13);
+    console.log(this);
+    this.map = L.map("map").setView([51.505, -0.09], 13);
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       maxZoom: 19,
       attribution: "© OpenStreetMap",
-    }).addTo(map);
+    }).addTo(this.map);
   }
 
   createListItem(workout) {
@@ -71,15 +74,21 @@ class View {
   changeCursorIcon() {
     this.bodyElement.classList.add("location-cursor");
   }
+
+  listenToLocationButton(handler) {
+    this.locationButton.addEventListener("click", handler);
+  }
 }
 
 class Controller {
   constructor(model, view) {
     this.model = model;
     this.view = view;
-    this.view.createMap();
+    this.view.createMap.call(this.view);
 
     this.view.listenToAddButton(this.handleChangedCursor.bind(this));
+
+    this.view.listenToLocationButton(this.handleGettingLocation.bind(this));
   }
 
   handleChangedCursor() {
@@ -87,6 +96,21 @@ class Controller {
     //reset on new clicks
 
     this.view.listenToAnyClick();
+  }
+
+  handleGettingLocation() {
+    if (navigator.geolocation)
+      navigator.geolocation.getCurrentPosition(
+        this.centerMapOn.bind(this),
+        function () {
+          alert("please provide position.");
+        }
+      );
+  }
+
+  centerMapOn(position) {
+    const latlng = [position.coords.latitude, position.coords.longitude];
+    console.log(latlng);
   }
 }
 
