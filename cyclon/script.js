@@ -32,51 +32,61 @@ class View {
     const listHtmlCode = `<li class="list-item">${workout}</li>`;
     listLocation.insertAdjacentHTML("afterbegin", listHtmlCode);
   }
+
+  listenToAddButton(handleChangedCursor) {
+    this.addButtonElement.addEventListener("click", (event) => {
+      this.changeCursorIcon();
+      setTimeout(handleChangedCursor, 50);
+    });
+  }
+
+  listenToAnyClick() {
+    //simplify adding and removing event handler that was added using bind
+    this.refrenceToResetCursorHandler = this.resetCursor.bind(this);
+    this.bodyElement.addEventListener(
+      "click",
+      this.refrenceToResetCursorHandler
+    );
+  }
+
+  resetCursor() {
+    if (this.currentCursorIsLocation()) {
+      console.log("actually reset the style of cursor");
+      this.bodyElement.classList.remove("location-cursor");
+      this.bodyElement.removeEventListener(
+        "click",
+        this.refrenceToResetCursorHandler
+      );
+    }
+  }
+
   getElement(selector) {
     return document.querySelector(`${selector}`);
   }
 
-  changeCursorToLocationIcon() {
-    this.bodyElement.classList.add("location-cursor");
+  currentCursorIsLocation() {
+    return this.bodyElement.classList.contains("location-cursor");
   }
 
-  resetCursorStyle() {
-    this.bodyElement.classList.remove("location-cursor");
+  changeCursorIcon() {
+    this.bodyElement.classList.add("location-cursor");
   }
 }
 
 class Controller {
-  pickingLocationFlag = false;
   constructor(model, view) {
     this.model = model;
     this.view = view;
     this.view.createMap();
 
-    this.view.addButtonElement.addEventListener(
-      "click",
-      this.handleAddButton.bind(this)
-    );
-
-    this.view.bodyElement.addEventListener(
-      "click",
-      this.handleResetCursorStyle.bind(this)
-    );
+    this.view.listenToAddButton(this.handleChangedCursor.bind(this));
   }
 
-  handleAddButton() {
-    this.view.changeCursorToLocationIcon();
-    setTimeout(this.togglePickingLocationFlag.bind(this), 300);
-  }
+  handleChangedCursor() {
+    console.log("listen to any click");
+    //reset on new clicks
 
-  handleResetCursorStyle() {
-    if (this.pickingLocationFlag) {
-      this.view.resetCursorStyle();
-      this.togglePickingLocationFlag();
-    }
-  }
-
-  togglePickingLocationFlag() {
-    this.pickingLocationFlag = !this.pickingLocationFlag;
+    this.view.listenToAnyClick();
   }
 }
 
