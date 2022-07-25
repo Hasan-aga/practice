@@ -17,7 +17,11 @@ html {
 }
 
 .location-cursor {
+<<<<<<< HEAD
     cursor: url("images/location.png") ,auto;
+=======
+    cursor: url("images/location.png") 32 16,auto;
+>>>>>>> 0794d22 (change cursor when adding location)
   }
 
 .centered {
