@@ -15,7 +15,7 @@ bodyElement.addEventListener("click", function () {
   if (pickingLocationFlag) {
     console.log(pickingLocationFlag);
     bodyElement.classList.remove("location-cursor");
-    pickingLocationFlag = !pickingLocationFlag;
+    togglePickingLocationFlag();
   }
 });
 
@@ -25,5 +25,6 @@ addButtonElement.addEventListener("click", function () {
 });
 
 function togglePickingLocationFlag() {
+  console.log("w");
   pickingLocationFlag = !pickingLocationFlag;
 }
