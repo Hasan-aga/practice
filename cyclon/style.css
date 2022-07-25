@@ -1,11 +1,44 @@
+
+:root{
+    --primary-dark--1:#333
+    --primary-dark--2:#555
+    --primary-bright--1:#f7f7f7
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+
 html {
   font-size: 62.5%;
+}
+
+.centered {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.switches {
+  list-style-type: none;
+  width: fit-content;
+  display: flex;
+  border: 1px solid red;
+  border-radius: 3px;
+}
+
+.button {
+  padding: 5px;
+}
+.button:hover {
+  cursor: pointer;
+}
+
+.active {
+  background-color: #666;
+  color: #f7f7f7;
 }
 
 header {
@@ -28,4 +61,28 @@ h1 {
 
 .header-subtitle {
   font-size: 2rem;
+}
+
+main {
+  font-size: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  column-gap: 1rem;
+}
+
+.content-input {
+  grid-column: 1/-1;
+  display: flex;
+column-gap: 2rem;
+}
+
+.content-input--add{
+    width: 4rem;
+    text-align: center;
+    border: 1px solid #666;
+    border-radius: 3px;
+}
+
+.content-map {
+  height: 80rem;
 }

@@ -10,7 +10,7 @@
     <title>Cyclon</title>
   </head>
   <body>
-    <header class="header">
+    <header class="header centered">
       <img
         class="header-logo"
         src="images/runner-logo.svg"
@@ -21,8 +21,28 @@
         <p class="header-subtitle">Plan and log your exercise</p>
       </div>
     </header>
-    <main class="content">
-      <div class="content-input">input</div>
+    <main class="content centered">
+      <div class="content-input">
+        <div class="content-input--type">
+          <input
+            id="activity-type"
+            name="activity-type"
+            type="hidden"
+            value="Ride"
+          />
+          <ul class="switches">
+            <li>
+              <div activity-type="Ride" class="button first-child active">
+                Cycling
+              </div>
+            </li>
+            <li>
+              <div activity-type="Run" class="button">Running</div>
+            </li>
+          </ul>
+        </div>
+        <div class="content-input--add button">+</div>
+      </div>
       <div class="content-list">list</div>
       <div class="content-map">
         <div class="map" id="map">map</div>
