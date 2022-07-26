@@ -59,12 +59,23 @@ class View {
     );
   }
 
-  listenToMapClick() {
-    this.mapElement.addEventListener("click", this.addMarker);
+  listenToMapClick(handler) {
+    this.referenceToMapClickHandler = handler; // to remove the listener later
+    this.map.on("click", handler);
   }
 
-  addMarker() {
-    console.log("add marker");
+  listenToLocationButton(handler) {
+    this.locationButton.addEventListener("click", handler);
+  }
+
+  addMarker(latlng, map, popUp = false) {
+    console.log("event", latlng);
+    console.log("map", map);
+    const marker = L.marker(latlng).addTo(map);
+    if (popUp) {
+      marker.bindPopup(`${popUp}`).openPopup();
+    }
+    return marker;
   }
 
   resetCursor() {
@@ -76,6 +87,7 @@ class View {
         this.refrenceToResetCursorHandler
       );
       this.mapElement.removeEventListener("click", this.addMarker);
+      this.map.off("click", this.referenceToMapClickHandler);
     }
   }
 
@@ -89,10 +101,6 @@ class View {
 
   changeCursorIcon() {
     this.bodyElement.classList.add("location-cursor");
-  }
-
-  listenToLocationButton(handler) {
-    this.locationButton.addEventListener("click", handler);
   }
 }
 
@@ -110,9 +118,10 @@ class Controller {
   handleChangedCursor() {
     console.log("listen to any click");
     //reset on new clicks
-
     this.view.listenToAnyClick();
-    this.view.listenToMapClick();
+
+    // listen to click on map only after add button is clicked
+    this.view.listenToMapClick(this.handleMapClick.bind(this));
   }
 
   handleGettingLocation() {
@@ -123,6 +132,12 @@ class Controller {
           alert("please provide position.");
         }
       );
+  }
+
+  handleMapClick(event) {
+    const latlng = Object.values(event.latlng);
+    this.currentWorkoutPosition = latlng;
+    console.log(this.currentWorkoutPosition);
   }
 }
 
