@@ -19,6 +19,7 @@ class View {
     this.bodyElement = document.querySelector("body");
     this.addButtonElement = document.querySelector(".content-input--add");
     this.locationButton = document.querySelector(".map-search--button");
+    this.mapElement = this.bodyElement.querySelector("#map");
   }
 
   createMap() {
@@ -58,6 +59,14 @@ class View {
     );
   }
 
+  listenToMapClick() {
+    this.mapElement.addEventListener("click", this.addMarker);
+  }
+
+  addMarker() {
+    console.log("add marker");
+  }
+
   resetCursor() {
     if (this.currentCursorIsLocation()) {
       console.log("actually reset the style of cursor");
@@ -66,6 +75,7 @@ class View {
         "click",
         this.refrenceToResetCursorHandler
       );
+      this.mapElement.removeEventListener("click", this.addMarker);
     }
   }
 
@@ -102,6 +112,7 @@ class Controller {
     //reset on new clicks
 
     this.view.listenToAnyClick();
+    this.view.listenToMapClick();
   }
 
   handleGettingLocation() {
