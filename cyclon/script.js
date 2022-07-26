@@ -31,9 +31,7 @@ class View {
   }
 
   centerMapOn(position) {
-    console.log(this);
     const latlng = [position.coords.latitude, position.coords.longitude];
-    console.log(latlng);
     this.map.panTo(new L.LatLng(...latlng));
   }
 
@@ -129,7 +127,7 @@ class Controller {
       navigator.geolocation.getCurrentPosition(
         this.view.centerMapOn.bind(this.view),
         function () {
-          alert("please provide position.");
+          console.log("could not obtain location, displaying default map ");
         }
       );
   }
@@ -138,6 +136,7 @@ class Controller {
     const latlng = Object.values(event.latlng);
     this.currentWorkoutPosition = latlng;
     console.log(this.currentWorkoutPosition);
+    this.view.addMarker(latlng, this.view.map, "success");
   }
 }
 
