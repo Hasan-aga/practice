@@ -138,7 +138,20 @@ class Controller {
     console.log(this.currentWorkoutPosition);
     this.view.addMarker(latlng, this.view.map, "success");
   }
+
+  async getJsonFromFetch(url) {
+    const response = await fetch(url);
+    return await response.json();
+  }
+
+  async getCountryFromName(countryName) {
+    const [countryData] = await this.getJsonFromFetch(
+      `https://restcountries.com/v3.1/name/${countryName}`
+    );
+    console.log(countryData);
+  }
 }
 
 const app = new Controller(new Model(), new View());
 app.view.createListItem("hello");
+app.getCountryFromName("iraq");
