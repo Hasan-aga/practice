@@ -182,4 +182,3 @@ class Controller {
 
 const app = new Controller(new Model(), new View());
 app.view.createListItem("hello");
-app.getLocationFromName("mosul");
