@@ -35,7 +35,7 @@ class View {
     if (!(position instanceof Array)) {
       position = [position.coords.latitude, position.coords.longitude];
     }
-    this.map.panTo(new L.LatLng(...position));
+    this.map.setView(position, 13, { animate: true });
   }
 
   createListItem(workout) {
