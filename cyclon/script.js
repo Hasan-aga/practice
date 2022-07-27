@@ -20,6 +20,7 @@ class View {
     this.addButtonElement = document.querySelector(".content-input--add");
     this.locationButton = document.querySelector(".map-search--button");
     this.mapElement = this.bodyElement.querySelector("#map");
+    this.mapSearchElement = document.querySelector(".map-search--input");
   }
 
   createMap() {
@@ -64,6 +65,15 @@ class View {
 
   listenToLocationButton(handler) {
     this.locationButton.addEventListener("click", handler);
+  }
+
+  listenToLocationSearch(handler) {
+    this.mapSearchElement.addEventListener("keypress", function (e) {
+      if (e.key === "Enter") {
+        console.log("search location", this.value);
+        handler(this.value);
+      }
+    });
   }
 
   addMarker(latlng, map, popUp = false) {
@@ -111,6 +121,8 @@ class Controller {
     this.view.listenToAddButton(this.handleChangedCursor.bind(this));
 
     this.view.listenToLocationButton(this.handleGettingLocation.bind(this));
+
+    this.view.listenToLocationSearch(this.getCountryFromName.bind(this));
   }
 
   handleChangedCursor() {
@@ -140,15 +152,25 @@ class Controller {
   }
 
   async getJsonFromFetch(url) {
-    const response = await fetch(url);
-    return await response.json();
+    try {
+      const response = await fetch(url);
+      return await response.json();
+    } catch (e) {
+      throw e;
+    }
   }
 
   async getCountryFromName(countryName) {
-    const [countryData] = await this.getJsonFromFetch(
-      `https://restcountries.com/v3.1/name/${countryName}`
-    );
-    console.log(countryData);
+    try {
+      console.log(`fetching info for ${countryName}`);
+      const [countryData] = await this.getJsonFromFetch(
+        `https://restcountries.com/v3.1/name/${countryName}`
+      );
+      console.log(countryData);
+    } catch (e) {
+      console.error(`could not fetch country info.
+      ${e}`);
+    }
   }
 }
 
