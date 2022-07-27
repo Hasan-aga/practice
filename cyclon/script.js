@@ -32,8 +32,10 @@ class View {
   }
 
   centerMapOn(position) {
-    const latlng = [position.coords.latitude, position.coords.longitude];
-    this.map.panTo(new L.LatLng(...latlng));
+    if (typeof position === "object") {
+      position = [position.coords.latitude, position.coords.longitude];
+    }
+    this.map.panTo(new L.LatLng(...position));
   }
 
   createListItem(workout) {
@@ -169,6 +171,7 @@ class Controller {
       const countryData = await this.getJsonFromFetch(countryName);
       const latlng = [countryData.results[0].lat, countryData.results[0].lon];
       console.log(latlng);
+      return await latlng;
     } catch (e) {
       console.error(e);
     }
