@@ -75,6 +75,7 @@ class View {
       if (e.key === "Enter") {
         console.log("search location", this.value);
         handler(this.value);
+        this.value = "";
       }
     });
   }
