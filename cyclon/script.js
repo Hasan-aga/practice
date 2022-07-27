@@ -32,8 +32,7 @@ class View {
   }
 
   centerMapOn(position) {
-    if (typeof position instanceof Object) {
-      console.log("object", position);
+    if (!(position instanceof Array)) {
       position = [position.coords.latitude, position.coords.longitude];
     }
     this.map.panTo(new L.LatLng(...position));
@@ -75,7 +74,6 @@ class View {
       if (e.key === "Enter") {
         console.log("search location", this.value);
         handler(this.value);
-        this.value = "";
       }
     });
   }
