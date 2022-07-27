@@ -122,7 +122,7 @@ class Controller {
 
     this.view.listenToLocationButton(this.handleGettingLocation.bind(this));
 
-    this.view.listenToLocationSearch(this.getCountryFromName.bind(this));
+    this.view.listenToLocationSearch(this.getLocationFromName.bind(this));
   }
 
   handleChangedCursor() {
@@ -151,7 +151,10 @@ class Controller {
     this.view.addMarker(latlng, this.view.map, "success");
   }
 
-  async getJsonFromFetch(url) {
+  async getJsonFromFetch(name) {
+    const apiKey = "2693514c6f184c17ac5785c2da27facb";
+    const url = `https://api.geoapify.com/v1/geocode/search?text=${name}&format=json&apiKey=${apiKey}`;
+    console.log(url);
     try {
       const response = await fetch(url);
       return await response.json();
@@ -160,20 +163,18 @@ class Controller {
     }
   }
 
-  async getCountryFromName(countryName) {
+  async getLocationFromName(countryName) {
     try {
       console.log(`fetching info for ${countryName}`);
-      const [countryData] = await this.getJsonFromFetch(
-        `https://restcountries.com/v3.1/name/${countryName}`
-      );
-      console.log(countryData);
+      const countryData = await this.getJsonFromFetch(countryName);
+      const latlng = [countryData.results[0].lat, countryData.results[0].lon];
+      console.log(latlng);
     } catch (e) {
-      console.error(`could not fetch country info.
-      ${e}`);
+      console.error(e);
     }
   }
 }
 
 const app = new Controller(new Model(), new View());
 app.view.createListItem("hello");
-app.getCountryFromName("iraq");
+app.getLocationFromName("mosul");
