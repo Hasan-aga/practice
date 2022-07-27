@@ -32,7 +32,8 @@ class View {
   }
 
   centerMapOn(position) {
-    if (typeof position === "object") {
+    if (typeof position instanceof Object) {
+      console.log("object", position);
       position = [position.coords.latitude, position.coords.longitude];
     }
     this.map.panTo(new L.LatLng(...position));
@@ -171,6 +172,7 @@ class Controller {
       const countryData = await this.getJsonFromFetch(countryName);
       const latlng = [countryData.results[0].lat, countryData.results[0].lon];
       console.log(latlng);
+      this.view.centerMapOn(latlng);
       return await latlng;
     } catch (e) {
       console.error(e);
