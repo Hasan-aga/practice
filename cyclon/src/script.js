@@ -29,14 +29,14 @@ function controlMapClick(event) {
   view.addMarker(latlng, view.map, "success");
 }
 
-const getLocationFromName = async function (countryName) {
+const controlGetLocation = async function (countryName) {
   try {
-    console.log(`fetching info for ${countryName}`);
-    const countryData = await getJsonFromFetch(countryName);
-    const latlng = [countryData.results[0].lat, countryData.results[0].lon];
-    console.log(latlng);
+    // console.log(`fetching info for ${countryName}`);
+    // const countryData = await getJsonFromFetch(countryName);
+    // const latlng = [countryData.results[0].lat, countryData.results[0].lon];
+    // console.log(latlng);
+    const latlng = await model.getLocationFromName(countryName);
     view.centerMapOn(latlng);
-    return await latlng;
   } catch (e) {
     console.error(e);
   }
@@ -46,7 +46,7 @@ function init() {
   view.addOnLoadHandler(controlMap);
   view.listenToAddButton(controlChangedCursor);
   view.listenToLocationButton(controlGettingLocation);
-  view.listenToLocationSearch(getLocationFromName);
+  view.listenToLocationSearch(controlGetLocation);
 }
 
 init();
