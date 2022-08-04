@@ -1,0 +1,19 @@
+{
+  "name": "cyclon",
+  "version": "1.0.0",
+  "description": "keep track of your cycling exercises",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "keywords": [
+    "sports"
+  ],
+  "author": "Hasan Aga",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.7.0"
+  }
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" type="image/x-icon" href="/images/runner-logo.svg" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+      integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <script
+      src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+      integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+      crossorigin=""
+    ></script>
+    <!-- <script type="module" src="view.js"></script> -->
+    <script type="module" defer src="src/script.js"></script>
+    <title>Cyclon</title>
+  </head>
+  <body>
+    <header class="header centered">
+      <img
+        class="header-logo"
+        src="images/runner-logo.svg"
+        alt="logo of a running figure"
+      />
+      <div class="header-text">
+        <h1 class="header-title">Cyclon</h1>
+        <p class="header-subtitle">Plan and log your exercise</p>
+      </div>
+    </header>
+    <main class="content centered">
+      <div class="content-input">
+        <div class="content-input--type">
+          <input
+            id="activity-type"
+            name="activity-type"
+            type="hidden"
+            value="Ride"
+          />
+          <ul class="switches">
+            <li>
+              <div activity-type="Ride" class="button first-child active">
+                Cycling
+              </div>
+            </li>
+            <li>
+              <div activity-type="Run" class="button">Running</div>
+            </li>
+          </ul>
+        </div>
+        <div class="content-input--add button" title="pick location">+</div>
+      </div>
+      <ul class="content-list">
+        <li class="list-item">list item</li>
+      </ul>
+      <div class="content-map">
+        <div class="map" id="map">
+          <div class="map-search">
+            <input class="map-search--input" placeholder="search location" />
+            <div
+              class="map-search--button button"
+              title="search location"
+            ></div>
+          </div>
+          <div class="map-center button" title="center map"></div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
