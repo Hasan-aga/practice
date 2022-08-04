@@ -1,4 +1,4 @@
-export class View {
+class View {
   map;
   constructor() {
     this.bodyElement = document.querySelector("body");
@@ -98,4 +98,10 @@ export class View {
   changeCursorIcon() {
     this.bodyElement.classList.add("location-cursor");
   }
+
+  addOnLoadHandler(handler) {
+    window.addEventListener("load", handler);
+  }
 }
+
+export default new View();

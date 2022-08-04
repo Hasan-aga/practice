@@ -1,57 +1,37 @@
-import { View } from "./view.js";
-class Workout {
-  constructor(type, marker) {
-    this.type = type;
-    this.marker = marker;
-  }
-}
-class Model {
-  workouts = [];
-  constructor(workout) {
-    this.workouts.push(workout);
-  }
+import  view  from "./view.js";
+import model from "./model.js";
+
+
+
+function controlMap() {
+  view.createMap.call(view);
 }
 
-class Controller {
-  constructor(model, view) {
-    this.model = model;
-    this.view = view;
-    this.view.createMap.call(this.view);
-
-    this.view.listenToAddButton(this.handleChangedCursor.bind(this));
-
-    this.view.listenToLocationButton(this.handleGettingLocation.bind(this));
-
-    this.view.listenToLocationSearch(this.getLocationFromName.bind(this));
-  }
-
-  handleChangedCursor() {
+  function handleChangedCursor() {
     console.log("listen to any click");
     //reset on new clicks
-    this.view.listenToAnyClick();
+    view.listenToAnyClick();
 
     // listen to click on map only after add button is clicked
-    this.view.listenToMapClick(this.handleMapClick.bind(this));
+    view.listenToMapClick(handleMapClick);
   }
 
-  handleGettingLocation() {
+  function handleGettingLocation() {
     if (navigator.geolocation)
       navigator.geolocation.getCurrentPosition(
-        this.view.centerMapOn.bind(this.view),
+        view.centerMapOn.bind(view),
         function () {
           console.log("could not obtain location, displaying default map ");
         }
       );
   }
 
-  handleMapClick(event) {
+  function handleMapClick(event) {
     const latlng = Object.values(event.latlng);
-    this.currentWorkoutPosition = latlng;
-    console.log(this.currentWorkoutPosition);
-    this.view.addMarker(latlng, this.view.map, "success");
+    view.addMarker(latlng, view.map, "success");
   }
 
-  async getJsonFromFetch(name) {
+  const getJsonFromFetch = async function(name) {
     const apiKey = "2693514c6f184c17ac5785c2da27facb";
     const url = `https://api.geoapify.com/v1/geocode/search?text=${name}&format=json&apiKey=${apiKey}`;
     console.log(url);
@@ -63,13 +43,13 @@ class Controller {
     }
   }
 
-  async getLocationFromName(countryName) {
+ const getLocationFromName= async function(countryName) {
     try {
       console.log(`fetching info for ${countryName}`);
-      const countryData = await this.getJsonFromFetch(countryName);
+      const countryData = await getJsonFromFetch(countryName);
       const latlng = [countryData.results[0].lat, countryData.results[0].lon];
       console.log(latlng);
-      this.view.centerMapOn(latlng);
+      view.centerMapOn(latlng);
       return await latlng;
     } catch (e) {
       console.error(e);
@@ -77,5 +57,11 @@ class Controller {
   }
 }
 
-const app = new Controller(new Model(), new View());
 app.view.createListItem("hello");
+
+function init() {
+  view.addOnLoadHandler()
+  view.listenToAddButton(handleChangedCursor);
+  view.listenToLocationButton(handleGettingLocation);
+  view.listenToLocationSearch(getLocationFromName);
+}
