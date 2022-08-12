@@ -1,5 +1,6 @@
 import view from "./views/view.js";
 import model from "./model.js";
+import listView from "./views/listView";
 
 function controlMap() {
   view.createMap.call(view);
@@ -47,6 +48,9 @@ function init() {
   view.listenToAddButton(controlChangedCursor);
   view.listenToLocationButton(controlGettingLocation);
   view.listenToLocationSearch(controlGetLocation);
+
+  listView.render();
+  listView.createListItem("cycling");
 }
 
 init();

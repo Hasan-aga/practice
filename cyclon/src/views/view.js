@@ -23,12 +23,6 @@ class View {
     this.map.setView(position, 13, { animate: true });
   }
 
-  createListItem(workout) {
-    const listLocation = document.querySelector(".content-list");
-    const listHtmlCode = `<li class="list-item">${workout}</li>`;
-    listLocation.insertAdjacentHTML("afterbegin", listHtmlCode);
-  }
-
   listenToAddButton(handleChangedCursor) {
     this.addButtonElement.addEventListener("click", (event) => {
       this.changeCursorIcon();
