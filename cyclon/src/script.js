@@ -1,18 +1,15 @@
 import view from "./views/view.js";
 import model from "./model.js";
 import listView from "./views/listView";
-
-function controlMap() {
-  view.createMap.call(view);
-}
+import mapView from "./views/mapView.js";
 
 function controlChangedCursor() {
   console.log("listen to any click");
   //reset on new clicks
-  view.listenToAnyClick();
+  view.listenToAnyClickOutsideOf("#map");
 
   // listen to click on map only after add button is clicked
-  view.listenToMapClick(controlMapClick);
+  mapView.listenToMapClick(controlMapClick);
 }
 
 function controlGettingLocation() {
@@ -27,7 +24,7 @@ function controlGettingLocation() {
 
 function controlMapClick(event) {
   const latlng = Object.values(event.latlng);
-  view.addMarker(latlng, view.map, "success");
+  mapView.addMarker(latlng, view.map, "success");
 }
 
 const controlGetLocation = async function (countryName) {
@@ -44,13 +41,18 @@ const controlGetLocation = async function (countryName) {
 };
 
 function init() {
-  view.addOnLoadHandler(controlMap);
+  view.state = model.state;
+  // view.addOnLoadHandler(controlMap);
   view.listenToAddButton(controlChangedCursor);
-  view.listenToLocationButton(controlGettingLocation);
-  view.listenToLocationSearch(controlGetLocation);
-
+  // view.listenToLocationButton(controlGettingLocation);
+  // view.listenToLocationSearch(controlGetLocation);
   listView.render();
   listView.createListItem("cycling");
+
+  mapView.state = model.state;
+  mapView.render();
+  mapView.listenToAnyClickOutsideOfSelf();
+  console.log(mapView);
 }
 
 init();
