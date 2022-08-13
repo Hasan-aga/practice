@@ -34,7 +34,7 @@ const controlGetLocation = async function (countryName) {
     // const latlng = [countryData.results[0].lat, countryData.results[0].lon];
     // console.log(latlng);
     const latlng = await model.getLocationFromName(countryName);
-    view.centerMapOn(latlng);
+    mapView.centerMapOn(latlng);
   } catch (e) {
     console.error(e);
   }
@@ -45,7 +45,7 @@ function init() {
   // view.addOnLoadHandler(controlMap);
   view.listenToAddButton(controlChangedCursor);
   mapView.listenToLocationButton(controlGettingLocation);
-  // view.listenToLocationSearch(controlGetLocation);
+  mapView.listenToLocationSearch(controlGetLocation);
   listView.render();
   listView.createListItem("cycling");
 

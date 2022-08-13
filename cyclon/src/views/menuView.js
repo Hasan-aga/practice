@@ -3,7 +3,6 @@ class View {
   constructor() {
     this.bodyElement = document.querySelector("body");
     this.addButtonElement = document.querySelector(".content-input--add");
-    this.mapSearchElement = document.querySelector(".map-search--input");
   }
 
   listenToAddButton(handleChangedCursor) {
@@ -21,16 +20,6 @@ class View {
     this.bodyElement.addEventListener("click", function (event) {
       if (event.target.closest(selector) === null) {
         refrenceToResetCursorHandler();
-      }
-    });
-  }
-
-  listenToLocationSearch(handler) {
-    this.mapSearchElement.addEventListener("keypress", function (e) {
-      if (e.key === "Enter") {
-        console.log("search location", this.value);
-        handler(this.value);
-        this.value = "";
       }
     });
   }

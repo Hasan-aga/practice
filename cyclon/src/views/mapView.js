@@ -3,6 +3,7 @@ class MapView {
   constructor(parentElementSelector = "#map") {
     this.parentElement = document.querySelector(parentElementSelector);
     this.locationButton = document.querySelector(".map-search--button");
+    this.mapSearchElement = document.querySelector(".map-search--input");
   }
 
   render() {
@@ -59,6 +60,16 @@ class MapView {
 
   listenToLocationButton(handler) {
     this.locationButton.addEventListener("click", handler);
+  }
+
+  listenToLocationSearch(handler) {
+    this.mapSearchElement.addEventListener("keypress", function (e) {
+      if (e.key === "Enter") {
+        console.log("search location", this.value);
+        handler(this.value);
+        this.value = "";
+      }
+    });
   }
 }
 
