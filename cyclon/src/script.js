@@ -8,7 +8,8 @@ const view = new MenuView(model.state);
 const listView = new ListView(model.state);
 
 function controlChangedCursor() {
-  console.log("listen to any click");
+  model.state.currentCursorIsLocation = true;
+
   //reset on new clicks
   view.listenToAnyClickOutsideOf("#map");
 
@@ -51,7 +52,6 @@ function init() {
   listView.render();
   listView.createListItem("cycling");
 
-  mapView.state = model.state;
   mapView.render();
   mapView.listenToAnyClickOutsideOfSelf();
   console.log(mapView);

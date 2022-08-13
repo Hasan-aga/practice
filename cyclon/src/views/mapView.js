@@ -28,19 +28,19 @@ export default class MapView {
   }
 
   listenToAnyClickOutsideOfSelf() {
-    //simplify adding and removing event handler that was added using bind
-    const refrenceToResetCursorHandler = this.resetCursor.bind(this);
-    this.refrenceToResetCursorHandler = refrenceToResetCursorHandler;
-    document.body.addEventListener("click", function (event) {
-      if (event.target.closest("#map") === null) {
-        console.log("click outside map");
-        refrenceToResetCursorHandler();
-      }
-    });
+    if (this.state.currentCursorIsLocation) {
+      //simplify adding and removing event handler that was added using bind
+      const refrenceToResetCursorHandler = this.resetCursor.bind(this);
+      this.refrenceToResetCursorHandler = refrenceToResetCursorHandler;
+      document.body.addEventListener("click", function (event) {
+        if (event.target.closest("#map") === null) {
+          console.log("click outside map");
+          refrenceToResetCursorHandler();
+        }
+      });
+    }
   }
   addMarker(latlng, map, popUp = false) {
-    console.log("event", latlng);
-    console.log("map", map);
     const marker = L.marker(latlng).addTo(this.map);
     if (popUp) {
       marker.bindPopup(`${popUp}`).openPopup();
@@ -49,7 +49,7 @@ export default class MapView {
   }
 
   resetCursor() {
-    console.log("actually reset the style of cursor");
+    console.log("from map: actually reset the style of cursor");
     document.body.removeEventListener(
       "click",
       this.refrenceToResetCursorHandler
