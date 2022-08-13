@@ -2,6 +2,7 @@ class MapView {
   state;
   constructor(parentElementSelector = "#map") {
     this.parentElement = document.querySelector(parentElementSelector);
+    this.locationButton = document.querySelector(".map-search--button");
   }
 
   render() {
@@ -54,6 +55,10 @@ class MapView {
     );
     this.parentElement.removeEventListener("click", this.addMarker);
     this.map.off("click", this.referenceToMapClickHandler);
+  }
+
+  listenToLocationButton(handler) {
+    this.locationButton.addEventListener("click", handler);
   }
 }
 

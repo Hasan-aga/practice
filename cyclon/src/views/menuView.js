@@ -3,7 +3,6 @@ class View {
   constructor() {
     this.bodyElement = document.querySelector("body");
     this.addButtonElement = document.querySelector(".content-input--add");
-    this.locationButton = document.querySelector(".map-search--button");
     this.mapSearchElement = document.querySelector(".map-search--input");
   }
 
@@ -24,10 +23,6 @@ class View {
         refrenceToResetCursorHandler();
       }
     });
-  }
-
-  listenToLocationButton(handler) {
-    this.locationButton.addEventListener("click", handler);
   }
 
   listenToLocationSearch(handler) {

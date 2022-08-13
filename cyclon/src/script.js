@@ -1,4 +1,4 @@
-import view from "./views/view.js";
+import view from "./views/menuView.js";
 import model from "./model.js";
 import listView from "./views/listView";
 import mapView from "./views/mapView.js";
@@ -15,7 +15,7 @@ function controlChangedCursor() {
 function controlGettingLocation() {
   if (navigator.geolocation)
     navigator.geolocation.getCurrentPosition(
-      view.centerMapOn.bind(view),
+      mapView.centerMapOn.bind(mapView),
       function () {
         console.log("could not obtain location, displaying default map ");
       }
@@ -44,7 +44,7 @@ function init() {
   view.state = model.state;
   // view.addOnLoadHandler(controlMap);
   view.listenToAddButton(controlChangedCursor);
-  // view.listenToLocationButton(controlGettingLocation);
+  mapView.listenToLocationButton(controlGettingLocation);
   // view.listenToLocationSearch(controlGetLocation);
   listView.render();
   listView.createListItem("cycling");
