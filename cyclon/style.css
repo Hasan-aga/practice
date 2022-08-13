@@ -38,7 +38,7 @@ html {
   cursor: pointer;
 }
 
-.active {
+.button-active {
   background-color: var(--primary-dark--2);
   color: var(--primary-bright--1);
 }

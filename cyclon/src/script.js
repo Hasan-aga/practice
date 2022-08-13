@@ -1,7 +1,11 @@
-import view from "./views/menuView.js";
+import MenuView from "./views/menuView.js";
 import model from "./model.js";
-import listView from "./views/listView";
-import mapView from "./views/mapView.js";
+import ListView from "./views/listView";
+import MapView from "./views/mapView.js";
+
+const mapView = new MapView(model.state);
+const view = new MenuView(model.state);
+const listView = new ListView(model.state);
 
 function controlChangedCursor() {
   console.log("listen to any click");
@@ -41,8 +45,6 @@ const controlGetLocation = async function (countryName) {
 };
 
 function init() {
-  view.state = model.state;
-  // view.addOnLoadHandler(controlMap);
   view.listenToAddButton(controlChangedCursor);
   mapView.listenToLocationButton(controlGettingLocation);
   mapView.listenToLocationSearch(controlGetLocation);

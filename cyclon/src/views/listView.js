@@ -1,5 +1,6 @@
-class ListView {
-  constructor(parentClassSelector = ".section-list") {
+export default class ListView {
+  constructor(state, parentClassSelector = ".section-list") {
+    this.state = state;
     this.parentElement = document.querySelector(parentClassSelector);
   }
 
@@ -27,5 +28,3 @@ class ListView {
       .insertAdjacentHTML("afterbegin", markup);
   }
 }
-
-export default new ListView();

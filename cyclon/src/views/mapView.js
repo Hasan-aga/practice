@@ -1,6 +1,6 @@
-class MapView {
-  state;
-  constructor(parentElementSelector = "#map") {
+export default class MapView {
+  constructor(state, parentElementSelector = "#map") {
+    this.state = state;
     this.parentElement = document.querySelector(parentElementSelector);
     this.locationButton = document.querySelector(".map-search--button");
     this.mapSearchElement = document.querySelector(".map-search--input");
@@ -72,5 +72,3 @@ class MapView {
     });
   }
 }
-
-export default new MapView();
